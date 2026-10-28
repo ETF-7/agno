@@ -133,7 +133,7 @@ class Mem0Tools(Toolkit):
         try:
             results = self.client.search(
                 query=query,
-                user_id=resolved_user_id,
+                filters={"user_id": resolved_user_id},
             )
 
             if isinstance(results, dict) and "results" in results:
@@ -160,7 +160,7 @@ class Mem0Tools(Toolkit):
             return resolved_user_id
         try:
             results = self.client.get_all(
-                user_id=resolved_user_id,
+                filters={"user_id": resolved_user_id},
             )
 
             if isinstance(results, dict) and "results" in results:
